@@ -23,9 +23,9 @@ BirdController::BirdController(GameObject *gameObject) : Component(gameObject) {
 bool BirdController::onKey(SDL_Event &event) {
     if (event.type == SDL_KEYDOWN){
         std::cout << "some key pressed" << std::endl;
-		//if (event.key == SDLK_SPACE) {
-		//	phys->setLinearVelocity(glm::vec2(0.5, 0));
-		//}
+		if (event.key.keysym.sym == SDLK_SPACE) {
+			phys->addImpulse(glm::vec2(0, 0.5f));
+		}
     } else if (event.type == SDL_KEYUP){
         std::cout << "some key released" << std::endl;
     }

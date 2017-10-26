@@ -193,7 +193,7 @@ std::shared_ptr<GameObject> BirdGame::createGameObject() {
 }
 
 void BirdGame::updatePhysics() {
-    const float32 timeStep = 1.0f / 60.0f;
+	const float32 timeStep = 1.0f / 60.0f;
     const int positionIterations = 2;
     const int velocityIterations = 6;
     world->Step(timeStep, velocityIterations, positionIterations);
