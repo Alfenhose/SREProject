@@ -32,3 +32,6 @@ IF (WIN32)
 ENDIF(WIN32)
 
 add_subdirectory(Box2DTestbed)
+add_subdirectory(Asteroids)
+add_subdirectory(mibal_wolfenstein)
+add_subdirectory(Snake)

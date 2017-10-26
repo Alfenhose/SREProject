@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\mikke\OneDrive\Documents\GitHub\SimpleRenderEngineProject\project\Asteroids\Asteroid.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\mikke\OneDrive\Documents\GitHub\SimpleRenderEngineProject\project\Asteroids\AsteroidsGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\mikke\OneDrive\Documents\GitHub\SimpleRenderEngineProject\project\Asteroids\Bang.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\mikke\OneDrive\Documents\GitHub\SimpleRenderEngineProject\project\Asteroids\Collidable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\mikke\OneDrive\Documents\GitHub\SimpleRenderEngineProject\project\Asteroids\GameObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\mikke\OneDrive\Documents\GitHub\SimpleRenderEngineProject\project\Asteroids\Laser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\mikke\OneDrive\Documents\GitHub\SimpleRenderEngineProject\project\Asteroids\SpaceShip.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\mikke\OneDrive\Documents\GitHub\SimpleRenderEngineProject\project\Asteroids\Asteroid.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\mikke\OneDrive\Documents\GitHub\SimpleRenderEngineProject\project\Asteroids\AsteroidsGame.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\mikke\OneDrive\Documents\GitHub\SimpleRenderEngineProject\project\Asteroids\Bang.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\mikke\OneDrive\Documents\GitHub\SimpleRenderEngineProject\project\Asteroids\Collidable.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\mikke\OneDrive\Documents\GitHub\SimpleRenderEngineProject\project\Asteroids\GameObject.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\mikke\OneDrive\Documents\GitHub\SimpleRenderEngineProject\project\Asteroids\Laser.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\mikke\OneDrive\Documents\GitHub\SimpleRenderEngineProject\project\Asteroids\SpaceShip.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\mikke\OneDrive\Documents\GitHub\SimpleRenderEngineProject\project\Asteroids\SpriteAtlassFormat.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\mikke\OneDrive\Documents\GitHub\SimpleRenderEngineProject\project\Asteroids\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{80294665-DC6A-3235-B95C-551B1C3B789B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{70186D3E-4016-31AC-8810-90BB582A47A8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
