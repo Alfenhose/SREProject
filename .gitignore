@@ -24,6 +24,19 @@ build/
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 
+*.sln
+
+CMakeFiles
+Debug
+Release
+*.tlog
+*.vcxproj
+*.rule
+*.filters
+*.bin
+*.cmake
+
+
 *_i.c
 *_p.c
 *.ilk
