@@ -25,7 +25,8 @@ build/
 [Bb]uild[Ll]og.*
 
 *.sln
-
+Browse.*
+Solution.*
 CMakeFiles
 Debug
 Release
