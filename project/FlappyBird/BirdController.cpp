@@ -24,7 +24,7 @@ bool BirdController::onKey(SDL_Event &event) {
     if (event.type == SDL_KEYDOWN){
         std::cout << "some key pressed" << std::endl;
 		if (event.key.keysym.sym == SDLK_SPACE) {
-			phys->addImpulse(glm::vec2(0, 0.5f));
+			phys->addImpulse(glm::vec2(0, 0.12f));
 		}
     } else if (event.type == SDL_KEYUP){
         std::cout << "some key released" << std::endl;
