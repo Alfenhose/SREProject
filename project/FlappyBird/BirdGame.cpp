@@ -80,12 +80,16 @@ void BirdGame::init() {
         obj->name = "Wall bottom";
         auto so = obj->addComponent<SpriteComponent>();
 
+
         float xOffset = xVariation * cos(i*curve*0.2f);
         glm::vec2 pos{i*300+xOffset,spriteBottom.getSpriteSize().y/2 + sin(i*curve)*heighVariation};
         obj->setPosition(pos);
         so->setSprite(spriteBottom);
 
         glm::vec2 s { spriteBottom.getSpriteSize().x * spriteBottom.getScale().x/2, spriteBottom.getSpriteSize().y * spriteBottom.getScale().y/2};
+
+		auto ph = obj->addComponent<PhysicsComponent>();
+		ph->initBox(b2_staticBody, s/physicsScale, {obj->getPosition().x / physicsScale, obj->getPosition().y / physicsScale }, 1);
     }
     auto spriteTop = spriteAtlas->get("column_top.png");
     spriteTop.setScale({2,2});
@@ -99,6 +103,9 @@ void BirdGame::init() {
         obj->setPosition(pos);
         glm::vec2 s { spriteTop.getSpriteSize().x * spriteTop.getScale().x/2, spriteTop.getSpriteSize().y * spriteTop.getScale().y/2};
         so->setSprite(spriteTop);
+
+		auto ph = obj->addComponent<PhysicsComponent>();
+		ph->initBox(b2_staticBody, s/physicsScale, { obj->getPosition().x / physicsScale, obj->getPosition().y / physicsScale }, 1);
     }
 
     background1Component.init("background.png");
@@ -112,6 +119,7 @@ void BirdGame::update(float time) {
     for (int i=0;i<sceneObjects.size();i++){
         sceneObjects[i]->update(time);
     }
+
 }
 
 void BirdGame::render() {
