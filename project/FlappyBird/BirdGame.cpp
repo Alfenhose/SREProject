@@ -118,6 +118,11 @@ void BirdGame::update(float time) {
     }
     for (int i=0;i<sceneObjects.size();i++){
         sceneObjects[i]->update(time);
+		if (sceneObjects[i]->name == "Bird") {
+			if (!sceneObjects[i]->getComponent<BirdController>()->alive) {
+				gameState = GameState::GameOver;
+			}
+		}
     }
 
 }

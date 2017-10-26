@@ -17,7 +17,7 @@ BirdController::BirdController(GameObject *gameObject) : Component(gameObject) {
     // initiate bird physics
 	phys = gameObject->getComponent <PhysicsComponent>();
 	phys->setLinearVelocity(glm::vec2(0.5, 0));
-	
+	alive = true;
 }
 
 bool BirdController::onKey(SDL_Event &event) {
@@ -33,6 +33,9 @@ bool BirdController::onKey(SDL_Event &event) {
 }
 
 void BirdController::onCollisionStart(PhysicsComponent *comp) {
+	if (comp->getGameObject()->name == "Wall top" || comp->getGameObject()->name == "Wall bottom") {
+		alive = false;
+	}
     std::cout << "bird collided with something" << std::endl;
 }
 
