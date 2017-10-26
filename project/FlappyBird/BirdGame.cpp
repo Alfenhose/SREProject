@@ -108,6 +108,22 @@ void BirdGame::init() {
 		ph->initBox(b2_staticBody, s/physicsScale, { obj->getPosition().x / physicsScale, obj->getPosition().y / physicsScale }, 1);
     }
 
+	auto spriteCoin = spriteAtlas->get("coin.png");
+	spriteCoin.setScale({ 1,1 });
+	for (int i = 0; i < length; i++) {
+		auto obj = createGameObject();
+		obj->name = "Coin";
+		auto so = obj->addComponent<SpriteComponent>();
+		float xOffset = xVariation * cos(i*curve*0.2f);
+		glm::vec2 pos{ i * 300 + xOffset+150, (windowSize.y/2) - spriteCoin.getSpriteSize().y / 2 + sin(i*curve)*heighVariation };
+		obj->setPosition(pos);
+
+		so->setSprite(spriteCoin);
+		auto ph = obj->addComponent<PhysicsComponent>();
+		ph->initCircle(b2_staticBody, 10 / physicsScale, { obj->getPosition().x / physicsScale, obj->getPosition().y / physicsScale }, 0);
+		ph->setSensor(true);
+	}
+
     background1Component.init("background.png");
     background2Component.init("background2.png");
 }
