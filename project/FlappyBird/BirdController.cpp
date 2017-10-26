@@ -39,8 +39,6 @@ void BirdController::onCollisionStart(PhysicsComponent *comp) {
 	if (comp->getGameObject()->name == "Coin") {
 		auto sprite = comp->getGameObject()->getComponent<SpriteComponent>();
 		comp->getGameObject()->removeComponent(sprite);
-		//auto physics = comp->getGameObject()->getComponent<PhysicsComponent>();
-		//comp->getGameObject()->removeComponent(physics);
 	}
     std::cout << "bird collided with something" << std::endl;
 }
