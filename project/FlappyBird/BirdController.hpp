@@ -8,6 +8,8 @@ public:
 
     bool onKey(SDL_Event &event) override;
 
+	void update(float deltaTime) override;
+
     void onCollisionStart(PhysicsComponent *comp) override;
 
     void onCollisionEnd(PhysicsComponent *comp) override;

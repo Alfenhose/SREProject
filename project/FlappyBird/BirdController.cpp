@@ -12,22 +12,33 @@
 #include "SpriteComponent.hpp"
 
 std::shared_ptr<PhysicsComponent> phys;
+bool buttonDown = false;
 
 BirdController::BirdController(GameObject *gameObject) : Component(gameObject) {
     // initiate bird physics
 	phys = gameObject->getComponent <PhysicsComponent>();
-	phys->setLinearVelocity(glm::vec2(0.5, 0));
+	phys->setLinearVelocity(glm::vec2(1, 0));
 	alive = true;
+}
+
+void BirdController::update(float DeltaTime) {
+
 }
 
 bool BirdController::onKey(SDL_Event &event) {
     if (event.type == SDL_KEYDOWN){
         std::cout << "some key pressed" << std::endl;
 		if (event.key.keysym.sym == SDLK_SPACE) {
-			phys->addImpulse(glm::vec2(0, 0.12f));
+			if (!buttonDown) {
+				phys->addImpulse(glm::vec2(0, 0.12f));
+				buttonDown = true;
+			}
 		}
     } else if (event.type == SDL_KEYUP){
         std::cout << "some key released" << std::endl;
+		if (event.key.keysym.sym == SDLK_SPACE) {
+			buttonDown = false;
+		}
     }
     return false;
 }
