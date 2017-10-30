@@ -30,7 +30,9 @@ bool BirdController::onKey(SDL_Event &event) {
         std::cout << "some key pressed" << std::endl;
 		if (event.key.keysym.sym == SDLK_SPACE) {
 			if (!buttonDown) {
-				phys->addImpulse(glm::vec2(0, 0.12f));
+				auto vel = phys->getLinearVelocity();
+				phys->setLinearVelocity(glm::vec2(vel.x, 0));
+				phys->addImpulse(glm::vec2(0, 0.1f));
 				buttonDown = true;
 			}
 		}
