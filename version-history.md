@@ -1,5 +1,7 @@
 ## Version history
 
+ * 0.9.18 Add VSync support (default behavior). Update ImGUI to 0.52 and fix Profiler preview. Flip sprite anchor point on SpriteAtlasImport (TexturePacker compatible).
+ * 0.9.17 Fix compile issue on Linux
  * 0.9.16 Framerate issue on Windows 10
  * 0.9.15 Fix issue with mesh binding
  * 0.9.14 Improve custom mesh layout
