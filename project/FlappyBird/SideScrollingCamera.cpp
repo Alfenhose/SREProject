@@ -7,17 +7,17 @@
 
 using namespace glm;
 
-SideScrollingCamera::SideScrollingCamera(GameObject *gameObject)
+TopScrollingCamera::TopScrollingCamera(GameObject *gameObject)
         : Component(gameObject)
 {
     camera.setOrthographicProjection(BirdGame::windowSize.y/2,-1,1);
 }
 
-sre::Camera &SideScrollingCamera::getCamera() {
+sre::Camera &TopScrollingCamera::getCamera() {
     return camera;
 }
 
-void SideScrollingCamera::update(float deltaTime) {
+void TopScrollingCamera::update(float deltaTime) {
     auto position = followObject->getPosition();
 
     position.x += offset.x;
@@ -30,7 +30,7 @@ void SideScrollingCamera::update(float deltaTime) {
     camera.lookAt(eye, at, up);
 }
 
-void SideScrollingCamera::setFollowObject(std::shared_ptr<GameObject> followObject, glm::vec2 offset) {
+void TopScrollingCamera::setFollowObject(std::shared_ptr<GameObject> followObject, glm::vec2 offset) {
     this->followObject = followObject;
     this->offset = offset;
 }

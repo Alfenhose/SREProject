@@ -4,8 +4,9 @@
 #include "Box2D/Dynamics/b2World.h"
 #include "GameObject.hpp"
 #include "SideScrollingCamera.hpp"
-#include "BackgroundComponent.hpp"
 #include "Box2DDebugDraw.hpp"
+#include "Level.hpp"
+#include "BirdMovementComponent.hpp"
 
 class PhysicsComponent;
 
@@ -15,9 +16,9 @@ enum class GameState{
     GameOver
 };
 
-class ScrollerGame : public b2ContactListener {
+class PlatformerGame : public b2ContactListener {
 public:
-    ScrollerGame();
+    PlatformerGame();
 
     std::shared_ptr<GameObject> createGameObject();
     static const glm::vec2 windowSize;
@@ -26,13 +27,13 @@ public:
 
     void EndContact(b2Contact *contact) override;
 
-    static ScrollerGame* instance;
+    static PlatformerGame* instance;
 
-    void setGameState(GameState newState);
+    static constexpr float32 timeStep = 1.0f / 60.0f;
 private:
     sre::SDLRenderer r;
 
-    void init();
+    void initLevel();
     void initPhysics();
 
     void update(float time);
@@ -43,24 +44,27 @@ private:
 
     void handleContact(b2Contact *contact, bool begin);
 
-    std::shared_ptr<TopScrollingCamera> camera;
+    std::shared_ptr<SideScrollingCamera> camera;
     std::shared_ptr<sre::SpriteAtlas> spriteAtlas;
 
     std::vector<std::shared_ptr<GameObject>> sceneObjects;
-    BackgroundComponent background1Component;
-    BackgroundComponent background2Component;
 
     void updatePhysics();
+
+    std::shared_ptr<Level> level;
+
+    glm::vec4 backgroundColor;
     b2World * world = nullptr;
+    BirdMovementComponent* birdMovement;
     const float physicsScale = 100;
     void registerPhysicsComponent(PhysicsComponent *r);
     void deregisterPhysicsComponent(PhysicsComponent *r);
     std::map<b2Fixture*,PhysicsComponent *> physicsComponentLookup;
     Box2DDebugDraw debugDraw;
     bool doDebugDraw = false;
-    GameState gameState = GameState::Ready;
     friend class PhysicsComponent;
+    friend class Level;
+    friend class CharacterController;
+    friend class PlatformComponent;
 };
-
-
 

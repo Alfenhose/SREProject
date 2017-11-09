@@ -43,7 +43,7 @@ void ScrollerGame::init() {
     initPhysics();
     auto camObj = createGameObject();
     camObj->name = "Camera";
-    camera = camObj->addComponent<SideScrollingCamera>();
+    camera = camObj->addComponent<TopScrollingCamera>();
     camObj->setPosition(windowSize*0.5f);
 
     spriteAtlas = SpriteAtlas::create("scroller.json","scroller.png");

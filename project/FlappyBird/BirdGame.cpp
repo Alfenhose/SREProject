@@ -43,14 +43,14 @@ void BirdGame::init() {
     initPhysics();
     auto camObj = createGameObject();
     camObj->name = "Camera";
-    camera = camObj->addComponent<SideScrollingCamera>();
+    camera = camObj->addComponent<TopScrollingCamera>();
     camObj->setPosition(windowSize*0.5f);
 
     spriteAtlas = SpriteAtlas::create("bird.json","bird.png");
 
     auto birdObj = createGameObject();
     birdObj->name = "Bird";
-    camera->setFollowObject(birdObj, {+150,BirdGame::windowSize.y/2});
+    camera->setFollowObject(birdObj, { BirdGame::windowSize.x / 2,0});
     auto so = birdObj->addComponent<SpriteComponent>();
     auto sprite = spriteAtlas->get("bird1.png");
     sprite.setScale({2,2});
@@ -125,7 +125,8 @@ void BirdGame::init() {
 	}
 
     background1Component.init("background.png");
-    background2Component.init("background2.png");
+	background2Component.init("background2.png");
+
 }
 
 void BirdGame::update(float time) {
