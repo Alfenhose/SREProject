@@ -16,10 +16,14 @@ void MovingPlatformComponent::update(float deltaTime) {
 
     // todo replace with easing function
     if (fmod(totalTime,2)>1){
-        platformComponent->moveTo(movementEnd);
+		rising = true;
+		//platformComponent->moveTo(movementEnd);
     } else {
-        platformComponent->moveTo(movementStart);
+		rising = false;
+		//platformComponent->moveTo(movementStart);
     }
+	t = glm::smoothstep(rising?0.0:1.0, rising?1.0:0.0, fmod(totalTime, 1));
+	platformComponent->moveTo(glm::mix(movementStart, movementEnd, t));
 }
 
 void MovingPlatformComponent::setMovementStart(glm::vec2 pos) {

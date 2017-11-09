@@ -17,6 +17,8 @@ public:
 
 private:
     float totalTime = 0;
+	float t = 0;
+	bool rising = false;
     glm::vec2 movementStart = glm::vec2(0,0);
     glm::vec2 movementEnd = glm::vec2(0,0);
     std::shared_ptr<PlatformComponent> platformComponent;
