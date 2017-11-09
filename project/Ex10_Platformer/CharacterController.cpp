@@ -121,12 +121,33 @@ void CharacterController::updateSprite(float deltaTime) {
 		else spriteComponent->setSprite(walk2);
 	}
 	if (!isGrounded && velocity.y > 0) {
+		if (velocity.x >= 0) {
+			flyUp.setFlip({ 0,0 });
+
+		}
+		else {
+			flyUp.setFlip({ 1,0 });
+		}
 		spriteComponent->setSprite(flyUp);
 	}
 	if (!isGrounded && velocity.y == 0) {
+		if (velocity.x >= 0) {
+			fly.setFlip({ 0,0 });
+
+		}
+		else {
+			fly.setFlip({ 1,0 });
+		}
 		spriteComponent->setSprite(fly);
 	}
 	if (!isGrounded && velocity.y < 0) {
+		if (velocity.x >= 0) {
+			flyDown.setFlip({ 0,0 });
+
+		}
+		else {
+			flyDown.setFlip({ 1,0 });
+		}
 		spriteComponent->setSprite(flyDown);
 	}
     // todo implement
