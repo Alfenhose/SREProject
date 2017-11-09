@@ -45,4 +45,6 @@ private:
     float radius;
     bool left = false;
     bool right = false;
+
+	float globalTime;
 };

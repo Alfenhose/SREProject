@@ -20,7 +20,7 @@ CharacterController::CharacterController(GameObject *gameObject) : Component(gam
     characterPhysics->getFixture()->SetRestitution(0);
     characterPhysics->fixRotation();
     spriteComponent = gameObject->getComponent<SpriteComponent>();
-
+	globalTime = 0;
 }
 
 bool CharacterController::onKey(SDL_Event &event) {
@@ -71,6 +71,7 @@ void CharacterController::update(float deltaTime) {
         linearVelocity.x = glm::sign(linearVelocity.x)*maximumVelocity;
         characterPhysics->setLinearVelocity(linearVelocity);
     }
+	globalTime += deltaTime;
     updateSprite(deltaTime);
 }
 
@@ -103,6 +104,31 @@ void CharacterController::setSprites(sre::Sprite standing, sre::Sprite walk1, sr
 
 void CharacterController::updateSprite(float deltaTime) {
     auto velocity = characterPhysics->getLinearVelocity();
+
+	if (isGrounded && velocity.x == 0) {
+		spriteComponent->setSprite(standing);
+	}
+	if (velocity.x > 0 && isGrounded) {
+		walk1.setFlip({ 0,0 });
+		walk2.setFlip({ 0,0 });
+		if (fmod(5*globalTime,2) > 1) spriteComponent->setSprite(walk1);
+		else spriteComponent->setSprite(walk2);
+	}
+	if (velocity.x < 0 && isGrounded) {
+		walk1.setFlip({1,0});
+		walk2.setFlip({ 1,0 });
+		if (fmod(5 * globalTime, 2) > 1) spriteComponent->setSprite(walk1);
+		else spriteComponent->setSprite(walk2);
+	}
+	if (!isGrounded && velocity.y > 0) {
+		spriteComponent->setSprite(flyUp);
+	}
+	if (!isGrounded && velocity.y == 0) {
+		spriteComponent->setSprite(fly);
+	}
+	if (!isGrounded && velocity.y < 0) {
+		spriteComponent->setSprite(flyDown);
+	}
     // todo implement
 }
 
